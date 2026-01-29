@@ -249,17 +249,11 @@ If you'd like to contribute improvements, please:
 
 ## Authors
 
-- Your Name — your.email@example.com
+- amwadud
 - 42 School — push_swap subject inspiration
-
-Replace the author info with your GitHub handle: `amwadud` if you want attribution here.
 
 ---
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
----
-
-Good luck and happy optimizing! If you want, tell me which algorithm you implemented (radix, chunking, greedy insertion) and I can help tailor the README's "Algorithm & Approach" section with concrete pseudocode and complexity analysis.
