@@ -2,8 +2,6 @@
 
 Small, fast, and correct: this repository contains my implementation of the push_swap project from 42 School. The goal is to sort a stack of integers using a minimal sequence of permitted operations while following the project rules and constraints.
 
-> NOTE: This README is written for the repository named `brainfuck-sorting-project` (push_swap 42 project). Replace author/contact/license fields as needed.
-
 ---
 
 ## Table of contents
@@ -257,3 +255,4 @@ If you'd like to contribute improvements, please:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
