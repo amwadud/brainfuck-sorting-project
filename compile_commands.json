@@ -1,0 +1,36 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Iinclude",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/eren/lab/dev/42/push_swap",
+    "file": "/home/eren/lab/dev/42/push_swap/src/main.c",
+    "output": "/home/eren/lab/dev/42/push_swap/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Iinclude",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/opr.o",
+      "src/opr.c"
+    ],
+    "directory": "/home/eren/lab/dev/42/push_swap",
+    "file": "/home/eren/lab/dev/42/push_swap/src/opr.c",
+    "output": "/home/eren/lab/dev/42/push_swap/obj/opr.o"
+  }
+]
