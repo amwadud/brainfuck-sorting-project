@@ -34,25 +34,21 @@ INCLUDE  = include
 
 # === Source and object files =================================================
 
-
 SRC = ./stack/queries.c \
+	  ./stack/extra_queries.c \
 	  ./stack/misc.c \
 	  ./main.c \
 	  ./oper/rotate.c \
 	  ./oper/reverse_rotate.c \
 	  ./oper/push.c \
 	  ./oper/swap.c \
-	  ./algo/logic/refresh_stats.c \
-	  ./algo/logic/push_swap.c \
-	  ./algo/logic/move_cheapest.c \
-	  ./algo/logic/ps_final_rotate.c \
-	  ./algo/sort_three.c \
+	  ./algo/logic/chunk_algo.c \
 	  ./algo/init.c \
 	  ./misc/string.c \
 	  ./misc/freematrix.c \
 	  ./misc/puts.c \
 	  ./pars/split_fn.c \
-	  ./pars/atoi.c \
+	  ./pars/atoi.c
 
 SRCS = $(SRC:%.c=$(SRC_DIR)/%.c)
 OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)

@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 05:22:35 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/29 14:31:11 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/01/30 10:43:27 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,16 @@ struct s_stack_node
 /* ************************************************************************** */
 
 t_stack_node	*ps_stack_new(int val, int index, t_stack_node *prev, t_stack_node *next);
-void			ps_stack_pushback(t_stack_node **stack, t_stack_node *new);
-void			ps_stack_clean(t_stack_node **stack_head);
-ssize_t			ps_stack_size(t_stack_node *stack);
 t_stack_node	*ps_stack_find(t_stack_node *stack, int n);
 t_stack_node	*ps_stack_find_smallest(t_stack_node *stack);
 t_stack_node	*ps_stack_find_last(t_stack_node *stack);
-t_bool			ps_stack_is_sorted(t_stack_node *stack);
 t_stack_node	*ps_stack_min(t_stack_node *stack);
 t_stack_node	*ps_stack_max(t_stack_node *stack);
-t_stack_node	*ps_stack_max(t_stack_node *stack);
 t_stack_node	*ps_stack_find_index(t_stack_node *stack, int index);
+ssize_t			ps_stack_size(t_stack_node *stack);
+t_bool			ps_stack_is_sorted(t_stack_node *stack);
+void			ps_stack_pushback(t_stack_node **stack, t_stack_node *new);
+void			ps_stack_clean(t_stack_node **stack_head);
 void			ps_stack_iter(t_stack_node *stack, void (*f)(t_stack_node **));
 
 /* ************************************************************************** */
@@ -91,13 +90,6 @@ void	ps_freematrix(void **p);
 /* ************************************************************************** */
 
 t_bool	ps_stack_init(t_stack_node **stack, char **vals);
-t_bool	ps_stack_setindex(t_stack_node **node); /* NOTE: Not implemented yet */
-t_bool	ps_stack_setcost(t_stack_node **node);  /* NOTE: Not implemented yet */
-t_bool	ps_sort_three(t_stack_node **a, t_bool display);
 t_bool	ps_sort(t_stack_node **a, t_bool display);
-t_bool	ps_setup_above_median(t_stack_node **a);
-void	ps_refresh_stats(t_stack_node *a, t_stack_node *b);
-void	ps_move_cheapest(t_stack_node **a, t_stack_node **b);
-void	ps_final_rotate(t_stack_node **a, t_bool display);
 
 #endif /* !PUSH_SWAP_H */
