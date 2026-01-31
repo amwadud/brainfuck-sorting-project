@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 03:03:35 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/29 20:54:01 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/01/31 01:40:25 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,6 @@ static t_stack_node	*ps_get_cheapest(t_stack_node *stack)
 	return (cheapest);
 }
 
-static void set_index_and_median(t_stack_node *stack)
-{
-	int i = 0;
-	int median = ps_stack_size(stack) / 2;
-
-	while (stack)
-	{
-		stack->index = i;
-		stack->above_median = (i <= median); // Top half is true
-		stack = stack->next;
-		i++;
-	}
-}
-
 static void	ps_stack_bring_to_top(t_stack_node **stack, t_stack_node *node, t_bool is_a, t_bool display)
 {
 	if (!stack || !*stack || !node)
@@ -86,17 +72,13 @@ static void	ps_stack_bring_to_top(t_stack_node **stack, t_stack_node *node, t_bo
 void	ps_rotate_both_top(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
 {
 	while ((*b != cheapest) && (*a != cheapest->target))
-	{
 		ps_rr(a, b, true);
-	}
 }
 
 void	ps_reverse_rotate_both_bottom(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
 {
 	while ((*b != cheapest) && (*a != cheapest->target))
-	{
 		ps_rrr(a, b, true);
-	}
 }
 
 void ps_move_cheapest(t_stack_node **a, t_stack_node **b)

@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:57:11 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/08 05:56:49 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/01/31 02:18:46 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ void	ps_stack_pushback(t_stack_node **stack, t_stack_node *new)
 	if (!*stack)
 	{
 		*stack = new;
+		new->prev = NULL; // Ensure prev is initialized
 		return ;
 	}
 	last = ps_stack_find_last(*stack);
 	last->next = new;
+	new->prev = last; // <--- ADD THIS LINE
 }
 
 void	ps_stack_clean(t_stack_node **stack_head)

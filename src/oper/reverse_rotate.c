@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:53:37 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/29 05:59:57 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/01/31 02:17:42 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,25 @@
 
 static t_bool	ps_stack_reverse_rotate(t_stack_node **head)
 {
-	t_stack_node *top;
-	t_stack_node *tail;
+	t_stack_node	*tail;
 
 	if (!head || !*head || !(*head)->next)
 		return (false);
-	top = *head;
+	
 	tail = ps_stack_find_last(*head);
-	*head = top->next;
-	(*head)->prev = NULL;
-	top->next = NULL;
-	top->prev = tail;
-	tail->next = top;
+	
+	// Disconnect tail from the list
+	tail->prev->next = NULL; 
+	
+	// Attach old head after the tail
+	tail->next = *head;
+	tail->prev = NULL;
+	
+	// Set the old head's prev to the new head
+	(*head)->prev = tail;
+	
+	// Update the head pointer
+	*head = tail;
 	return (true);
 }
 
