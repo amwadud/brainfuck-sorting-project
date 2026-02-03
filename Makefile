@@ -11,10 +11,10 @@
 # **************************************************************************** #
 
 ##
-# Static library: libprintf.a
-# Builds your custom printf library.
+# Project: push_swap
+# Builds a sorting algorithm for stacks.
 #
-# @version 4.4.3
+# @version 1.0.0
 # @author:
 #   Abdelouadoud Ait El Haj
 
