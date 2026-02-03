@@ -14,23 +14,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-/* static long	ps_get_stack_average(t_stack_node *s)
-{
-	long	sum;
-	ssize_t	size;
-
-	sum = 0;
-	size = ps_stack_size(s);
-	if (size == 0)
-		return (0);
-	while (s)
-	{
-		sum += s->value;
-		s = s->next;
-	}
-	return (sum / size);
-} */
-
 static void ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool display)
 {
 	long	sum;
