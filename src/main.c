@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:45:00 by abait-el          #+#    #+#             */
-/*   Updated: 2026/02/03 00:46:08 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:03:58 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void ps_error_and_exit()
 
 int	main(int argc, char *argv[])
 {
-	t_stack_node *a;
+	t_stack_node	*a;
 
 	if (argc > 1)
 	{
