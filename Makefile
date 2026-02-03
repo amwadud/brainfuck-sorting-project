@@ -52,7 +52,7 @@ SRC = ./stack/queries.c \
 	  ./misc/freematrix.c \
 	  ./misc/puts.c \
 	  ./pars/split_fn.c \
-	  ./pars/atoi.c \
+	  ./pars/atoi.c
 
 SRCS = $(SRC:%.c=$(SRC_DIR)/%.c)
 OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
