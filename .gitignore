@@ -1,3 +1,5 @@
 ./build/
 ./push_swap
 ./compile_commands.json
+checker_linux
+compile_commands.json
