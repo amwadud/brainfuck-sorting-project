@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 05:22:35 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/29 14:31:11 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/05 06:19:17 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,15 @@ void	ps_freematrix(void **p);
 /*                                  Algorithm                                 */
 /* ************************************************************************** */
 
-t_bool	ps_stack_init(t_stack_node **stack, char **vals);
-t_bool	ps_stack_setindex(t_stack_node **node); /* NOTE: Not implemented yet */
-t_bool	ps_stack_setcost(t_stack_node **node);  /* NOTE: Not implemented yet */
-t_bool	ps_sort_three(t_stack_node **a, t_bool display);
-t_bool	ps_sort(t_stack_node **a, t_bool display);
-t_bool	ps_setup_above_median(t_stack_node **a);
-void	ps_refresh_stats(t_stack_node *a, t_stack_node *b);
-void	ps_move_cheapest(t_stack_node **a, t_stack_node **b);
-void	ps_final_rotate(t_stack_node **a, t_bool display);
+t_stack_node	*ps_stack_find_target(t_stack_node *head, t_stack_node *node);
+t_bool			ps_stack_init(t_stack_node **stack, char **vals);
+t_bool			ps_stack_setindex(t_stack_node **node); /* NOTE: Not implemented yet */
+t_bool			ps_stack_setcost(t_stack_node **node);  /* NOTE: Not implemented yet */
+t_bool			ps_sort_three(t_stack_node **a, t_bool display);
+t_bool			ps_sort(t_stack_node **a, t_bool display);
+t_bool			ps_setup_above_median(t_stack_node **a);
+void			ps_refresh_stats(t_stack_node *a, t_stack_node *b);
+void			ps_move_cheapest(t_stack_node **a, t_stack_node **b);
+void			ps_final_rotate(t_stack_node **a, t_bool display);
 
 #endif /* !PUSH_SWAP_H */

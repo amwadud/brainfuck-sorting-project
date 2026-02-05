@@ -22,7 +22,7 @@
 
 NAME     = push_swap
 CC       = cc
-CFLAGS   = -std=c99 -D PRINT_VALS=0 -g -Wall -Wextra -Werror -I$(INCLUDE) # FIXME: Remove this when planning to push the project.
+CFLAGS   = -std=c99 -Wall -Wextra -Werror -I$(INCLUDE)
 AR       = ar rcs
 RM       = rm -rf
 
@@ -43,6 +43,7 @@ SRC = ./stack/queries.c \
 	  ./oper/push.c \
 	  ./oper/swap.c \
 	  ./algo/logic/refresh_stats.c \
+	  ./algo/logic/best_target.c \
 	  ./algo/logic/push_swap.c \
 	  ./algo/logic/move_cheapest.c \
 	  ./algo/logic/ps_final_rotate.c \

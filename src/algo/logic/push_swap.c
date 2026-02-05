@@ -29,7 +29,10 @@ static void ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool
 
 	size = ps_stack_size(*a);
 	if (size <= 50)
+	{
 		ps_basic_move_until_n(a, b, n, display);
+		return ;
+	}
 	if (size <= (ssize_t)n)
 		return ;
 	sum = 0;
