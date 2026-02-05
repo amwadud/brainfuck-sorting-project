@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 22:23:31 by abait-el          #+#    #+#             */
-/*   Updated: 2026/02/05 05:17:51 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/05 05:39:03 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static void ps_move_until_n_nrml(t_stack_node **a, t_stack_node **b, size_t n, t_bool display)
+static void ps_basic_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool display)
 {
 	while (ps_stack_size(*a) > (ssize_t)n)
 		ps_pb(b, a, display);
@@ -29,7 +29,7 @@ static void ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool
 
 	size = ps_stack_size(*a);
 	if (size <= 50)
-		ps_move_until_n_nrml(a, b, n, display);
+		ps_basic_move_until_n(a, b, n, display);
 	if (size <= (ssize_t)n)
 		return ;
 	sum = 0;
