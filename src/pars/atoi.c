@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 12:05:46 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/03 00:28:49 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/05 05:16:13 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ t_bool	ps_atoi(const char *str, int *out)
 	if (!str || !*str)
 		return (false);
 	sign = ps_atoi_parse_sign(&str);
+	if (!*str)
+		return (false);
 	n = 0;
 	while (*str)
 	{

@@ -4,3 +4,12 @@
 ./checker_linux
 ./compile_commands.json
 ./check.sh
+./Push-Swap-Tester/
+./0
+./check_100.sh
+./check_500.sh
+./checker_linux
+./compile_commands.json
+./push_swap
+./push_swap_test_linux.sh
+./traces.txt

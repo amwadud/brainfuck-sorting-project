@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:52:45 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/31 02:19:21 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/05 05:23:02 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ static t_bool	ps_stack_rotate(t_stack_node **head)
 		return (false);
 	top = *head;
 	tail = ps_stack_find_last(*head);
-	
 	*head = top->next;
-	(*head)->prev = NULL; // New head has no prev
-	
+	(*head)->prev = NULL;
 	top->next = NULL;
 	top->prev = tail;
 	tail->next = top;

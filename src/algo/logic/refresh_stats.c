@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 22:59:24 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/29 14:21:02 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/05 05:21:47 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ t_stack_node	*ps_stack_find_target(t_stack_node *head, t_stack_node *node)
 {
 	t_stack_node	*curr;
 	t_stack_node	*best_match;
-	long			best_val; // Keep as long
+	long			best_val;
 
 	curr = head;
 	best_match = NULL;
-	best_val = LONG_MAX; // Use LONG_MAX here
+	best_val = LONG_MAX;
 	while (curr)
 	{
 		if (curr->value > node->value && curr->value < best_val)
@@ -35,7 +35,7 @@ t_stack_node	*ps_stack_find_target(t_stack_node *head, t_stack_node *node)
 	if (!best_match)
 	{
 		curr = head;
-		best_val = LONG_MAX; // Reset to LONG_MAX to find the absolute minimum
+		best_val = LONG_MAX;
 		while (curr)
 		{
 			if (curr->value < best_val)
@@ -72,7 +72,7 @@ void set_index_and_median(t_stack_node *stack)
 	while (stack)
 	{
 		stack->index = i;
-		stack->above_median = (i <= median); // Top half is true
+		stack->above_median = (i <= median);
 		stack = stack->next;
 		i++;
 	}
