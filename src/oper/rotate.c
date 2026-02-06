@@ -14,8 +14,8 @@
 
 static t_bool	ps_stack_rotate(t_stack_node **head)
 {
-	t_stack_node *top;
-	t_stack_node *tail;
+	t_stack_node	*top;
+	t_stack_node	*tail;
 
 	if (!head || !*head || !(*head)->next)
 		return (false);
@@ -47,5 +47,5 @@ t_bool	ps_rr(t_stack_node **a, t_stack_node **b, t_bool print)
 {
 	if (print)
 		ps_puts("rr");
-	return ps_ra(a, false) && (ps_rb(b, false));
+	return (ps_ra(a, false) && (ps_rb(b, false)));
 }

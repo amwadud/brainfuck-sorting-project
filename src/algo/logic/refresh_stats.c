@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdarg.h>
 #include <limits.h>
+#include <stdarg.h>
 
-void	ps_calculate_costs(t_stack_node *head) 
+void	ps_calculate_costs(t_stack_node *head)
 {
 	size_t	size;
 
@@ -29,11 +29,13 @@ void	ps_calculate_costs(t_stack_node *head)
 	}
 }
 
-void set_index_and_median(t_stack_node *stack)
+void	set_index_and_median(t_stack_node *stack)
 {
-	int i = 0;
-	int median = ps_stack_size(stack) / 2;
+	int	i;
+	int	median;
 
+	i = 0;
+	median = ps_stack_size(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;
@@ -45,7 +47,7 @@ void set_index_and_median(t_stack_node *stack)
 
 void	ps_refresh_stats(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node *curr_b;
+	t_stack_node	*curr_b;
 
 	curr_b = b;
 	set_index_and_median(a);
@@ -55,6 +57,6 @@ void	ps_refresh_stats(t_stack_node *a, t_stack_node *b)
 		curr_b->target = ps_stack_find_target(a, curr_b);
 		curr_b = curr_b->next;
 	}
-	ps_calculate_costs(a); 
-	ps_calculate_costs(b); 
+	ps_calculate_costs(a);
+	ps_calculate_costs(b);
 }

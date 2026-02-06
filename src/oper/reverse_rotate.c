@@ -18,9 +18,8 @@ static t_bool	ps_stack_reverse_rotate(t_stack_node **head)
 
 	if (!head || !*head || !(*head)->next)
 		return (false);
-	
 	tail = ps_stack_find_last(*head);
-	tail->prev->next = NULL; 
+	tail->prev->next = NULL;
 	tail->next = *head;
 	tail->prev = NULL;
 	(*head)->prev = tail;

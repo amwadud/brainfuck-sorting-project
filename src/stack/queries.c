@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_stack_node *ps_stack_find(t_stack_node *stack, int n)
+t_stack_node	*ps_stack_find(t_stack_node *stack, int n)
 {
 	while (stack)
 	{

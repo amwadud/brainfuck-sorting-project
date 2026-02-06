@@ -14,11 +14,13 @@
 
 static t_bool	ps_stack_swap(t_stack_node **head)
 {
+	t_stack_node	*fst;
+	t_stack_node	*sec;
+
 	if (!head || !*head || !(*head)->next)
 		return (false);
-
-	t_stack_node *fst = *head;
-	t_stack_node *sec = fst->next;
+	fst = *head;
+	sec = fst->next;
 	fst->next = sec->next;
 	if (sec->next)
 		sec->next->prev = fst;

@@ -50,6 +50,7 @@ SRC = ./stack/queries.c \
 	  ./algo/sort_three.c \
 	  ./algo/init.c \
 	  ./misc/string.c \
+	  ./misc/max.c \
 	  ./misc/freematrix.c \
 	  ./misc/puts.c \
 	  ./pars/split_fn.c \

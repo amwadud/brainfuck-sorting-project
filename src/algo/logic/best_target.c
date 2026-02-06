@@ -14,7 +14,7 @@
 #include <limits.h>
 
 static t_stack_node	*find_best_match_above_target(t_stack_node *head,
-t_stack_node *node)
+		t_stack_node *node)
 {
 	t_stack_node	*curr;
 	t_stack_node	*best_match;

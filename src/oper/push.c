@@ -14,7 +14,7 @@
 
 static t_bool	ps_stack_push(t_stack_node **from, t_stack_node **to)
 {
-	t_stack_node *node;
+	t_stack_node	*node;
 
 	if (!from || !*from || !to)
 		return (false);

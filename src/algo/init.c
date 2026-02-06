@@ -49,11 +49,11 @@ static t_bool	process_tokens(t_stack_node **stack, char **tokens)
 
 static int	ps_is_space(char c)
 {
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r');
 }
 
-static	t_bool	ps_is_strempty(char *s)
+static t_bool	ps_is_strempty(char *s)
 {
 	int	i;
 

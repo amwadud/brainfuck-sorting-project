@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 22:23:31 by abait-el          #+#    #+#             */
-/*   Updated: 2026/02/05 05:39:03 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/06 05:27:52 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,38 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static void ps_basic_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool display)
+static void	ps_basic_move_until_n(t_stack_node **a, t_stack_node **b, size_t n,
+		t_bool display)
 {
 	while (ps_stack_size(*a) > (ssize_t)n)
 		ps_pb(b, a, display);
 }
 
-static void ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool display)
+static void	ps_calculate_sum_avg(t_stack_node *a, long *sum, long *avg)
 {
-	long			sum;
-	long			avg;
 	ssize_t			size;
 	t_stack_node	*tmp;
+
+	*sum = 0;
+	*avg = 0;
+	size = ps_stack_size(a);
+	if (size == 0)
+		return ;
+	tmp = a;
+	while (tmp)
+	{
+		*sum += tmp->value;
+		tmp = tmp->next;
+	}
+	*avg = *sum / size;
+}
+
+static void	ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n,
+		t_bool display)
+{
+	long	sum;
+	long	avg;
+	ssize_t	size;
 
 	size = ps_stack_size(*a);
 	if (size <= 50)
@@ -35,14 +55,7 @@ static void ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool
 	}
 	if (size <= (ssize_t)n)
 		return ;
-	sum = 0;
-	tmp = *a;
-	while (tmp)
-	{
-		sum += tmp->value;
-		tmp = tmp->next;
-	}
-	avg = sum / size;
+	ps_calculate_sum_avg(*a, &sum, &avg);
 	while (ps_stack_size(*a) > (ssize_t)n)
 	{
 		ps_pb(b, a, display);
@@ -51,7 +64,7 @@ static void ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool
 	}
 }
 
-t_bool ps_sort(t_stack_node **a, t_bool display)
+t_bool	ps_sort(t_stack_node **a, t_bool display)
 {
 	t_stack_node	*b;
 

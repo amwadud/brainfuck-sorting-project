@@ -6,27 +6,23 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 03:03:35 by abait-el          #+#    #+#             */
-/*   Updated: 2026/01/31 01:40:25 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/06 05:23:29 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-static int	max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
 static t_stack_node	*ps_get_cheapest(t_stack_node *stack)
 {
-	t_stack_node	*curr = stack;
-	t_stack_node	*cheapest = stack;
-	long			best_cost = LONG_MAX;
+	t_stack_node	*curr;
+	t_stack_node	*cheapest;
+	long			best_cost;
 	long			curr_total_cost;
 
+	curr = stack;
+	cheapest = stack;
+	best_cost = LONG_MAX;
 	while (curr)
 	{
 		if (curr->above_median == curr->target->above_median)
@@ -43,7 +39,8 @@ static t_stack_node	*ps_get_cheapest(t_stack_node *stack)
 	return (cheapest);
 }
 
-static void	ps_stack_bring_to_top(t_stack_node **stack, t_stack_node *node, t_bool is_a, t_bool display)
+static void	ps_stack_bring_to_top(t_stack_node **stack, t_stack_node *node,
+		t_bool is_a, t_bool display)
 {
 	if (!stack || !*stack || !node)
 		return ;
@@ -69,22 +66,25 @@ static void	ps_stack_bring_to_top(t_stack_node **stack, t_stack_node *node, t_bo
 	}
 }
 
-void	ps_rotate_both_top(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+void	ps_rotate_both_top(t_stack_node **a, t_stack_node **b,
+		t_stack_node *cheapest)
 {
 	while ((*b != cheapest) && (*a != cheapest->target))
 		ps_rr(a, b, true);
 }
 
-void	ps_reverse_rotate_both_bottom(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+void	ps_reverse_rotate_both_bottom(t_stack_node **a, t_stack_node **b,
+		t_stack_node *cheapest)
 {
 	while ((*b != cheapest) && (*a != cheapest->target))
 		ps_rrr(a, b, true);
 }
 
-void ps_move_cheapest(t_stack_node **a, t_stack_node **b)
+void	ps_move_cheapest(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node *cheapest = ps_get_cheapest(*b);
+	t_stack_node	*cheapest;
 
+	cheapest = ps_get_cheapest(*b);
 	if (cheapest->above_median && cheapest->target->above_median)
 		ps_rotate_both_top(a, b, cheapest);
 	else if (!cheapest->above_median && !cheapest->target->above_median)
