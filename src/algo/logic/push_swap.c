@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 22:23:31 by abait-el          #+#    #+#             */
-/*   Updated: 2026/02/06 05:27:52 by abait-el         ###   ########.fr       */
+/*   Updated: 2026/02/06 05:35:45 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,28 @@ static void	ps_basic_move_until_n(t_stack_node **a, t_stack_node **b, size_t n,
 		ps_pb(b, a, display);
 }
 
-static void	ps_calculate_sum_avg(t_stack_node *a, long *sum, long *avg)
+static long	ps_calculate_avg(t_stack_node *a)
 {
 	ssize_t			size;
+	long			sum;
 	t_stack_node	*tmp;
 
-	*sum = 0;
-	*avg = 0;
+	sum = 0;
 	size = ps_stack_size(a);
 	if (size == 0)
-		return ;
+		return 0;
+
 	tmp = a;
 	while (tmp)
 	{
-		*sum += tmp->value;
+		sum += tmp->value;
 		tmp = tmp->next;
 	}
-	*avg = *sum / size;
+	return sum / size;
 }
 
-static void	ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n,
-		t_bool display)
+static void	ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool display)
 {
-	long	sum;
-	long	avg;
 	ssize_t	size;
 
 	size = ps_stack_size(*a);
@@ -55,7 +53,9 @@ static void	ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n,
 	}
 	if (size <= (ssize_t)n)
 		return ;
-	ps_calculate_sum_avg(*a, &sum, &avg);
+
+	long avg = ps_calculate_avg(*a);
+
 	while (ps_stack_size(*a) > (ssize_t)n)
 	{
 		ps_pb(b, a, display);
