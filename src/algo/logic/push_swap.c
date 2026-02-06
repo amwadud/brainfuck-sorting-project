@@ -30,20 +30,21 @@ static long	ps_calculate_avg(t_stack_node *a)
 	sum = 0;
 	size = ps_stack_size(a);
 	if (size == 0)
-		return 0;
-
+		return (0);
 	tmp = a;
 	while (tmp)
 	{
 		sum += tmp->value;
 		tmp = tmp->next;
 	}
-	return sum / size;
+	return (sum / size);
 }
 
-static void	ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool display)
+static void	ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n,
+		t_bool display)
 {
 	ssize_t	size;
+	long	avg;
 
 	size = ps_stack_size(*a);
 	if (size <= 50)
@@ -53,9 +54,7 @@ static void	ps_move_until_n(t_stack_node **a, t_stack_node **b, size_t n, t_bool
 	}
 	if (size <= (ssize_t)n)
 		return ;
-
-	long avg = ps_calculate_avg(*a);
-
+	avg = ps_calculate_avg(*a);
 	while (ps_stack_size(*a) > (ssize_t)n)
 	{
 		ps_pb(b, a, display);
