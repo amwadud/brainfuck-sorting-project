@@ -20,74 +20,55 @@
 
 # === Basic configuration =====================================================
 
-NAME     = push_swap
-CC       = cc
-CFLAGS   = -std=c99 -Wall -Wextra -Werror -I$(INCLUDE)
-AR       = ar rcs
-RM       = rm -rf
+NAME        = push_swap
+BONUS_NAME  = checker
+CC          = cc
+CFLAGS      = --std=c99 -Wall -Wextra -Werror -Iinclude -Ibonus
 
-# === Directories =============================================================
+# Path definitions
+SRC_DIR     = src
+BONUS_DIR   = bonus
 
-SRC_DIR  = src
-OBJ_DIR  = build
-INCLUDE  = include
+# Collect all mandatory source files from subdirectories
+SRCS        = $(SRC_DIR)/main.c \
+              $(SRC_DIR)/algo/init.c $(SRC_DIR)/algo/sort_three.c \
+              $(SRC_DIR)/algo/logic/best_target.c $(SRC_DIR)/algo/logic/move_cheapest.c \
+              $(SRC_DIR)/algo/logic/ps_final_rotate.c $(SRC_DIR)/algo/logic/push_swap.c \
+              $(SRC_DIR)/algo/logic/refresh_stats.c \
+              $(SRC_DIR)/misc/freematrix.c $(SRC_DIR)/misc/max.c \
+              $(SRC_DIR)/misc/puts.c $(SRC_DIR)/misc/string.c \
+              $(SRC_DIR)/oper/push.c $(SRC_DIR)/oper/reverse_rotate.c \
+              $(SRC_DIR)/oper/rotate.c $(SRC_DIR)/oper/swap.c \
+              $(SRC_DIR)/pars/atoi.c $(SRC_DIR)/pars/split_fn.c \
+              $(SRC_DIR)/stack/misc.c $(SRC_DIR)/stack/queries.c
 
-# === Source and object files =================================================
+# Bonus sources (excluding main.c from mandatory)
+BONUS_SRCS  = $(BONUS_DIR)/checker_bonus.c \
+              $(BONUS_DIR)/get_next_line.c \
+              $(BONUS_DIR)/get_next_line_utils.c \
+              $(filter-out $(SRC_DIR)/main.c, $(SRCS))
 
+OBJS        = $(SRCS:.c=.o)
+BONUS_OBJS  = $(BONUS_SRCS:.c=.o)
 
-SRC = ./stack/queries.c \
-	  ./stack/misc.c \
-	  ./main.c \
-	  ./oper/rotate.c \
-	  ./oper/reverse_rotate.c \
-	  ./oper/push.c \
-	  ./oper/swap.c \
-	  ./algo/logic/refresh_stats.c \
-	  ./algo/logic/best_target.c \
-	  ./algo/logic/push_swap.c \
-	  ./algo/logic/move_cheapest.c \
-	  ./algo/logic/ps_final_rotate.c \
-	  ./algo/sort_three.c \
-	  ./algo/init.c \
-	  ./misc/string.c \
-	  ./misc/max.c \
-	  ./misc/freematrix.c \
-	  ./misc/puts.c \
-	  ./pars/split_fn.c \
-	  ./pars/atoi.c
-
-SRCS = $(SRC:%.c=$(SRC_DIR)/%.c)
-OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
-
-# === Rules ===================================================================
-
-# Default target
 all: $(NAME)
 
-# Create the static library from object files
 $(NAME): $(OBJS)
-	@echo ">>> Building the project...$(NAME)..."
-	gcc $(OBJS) -o $(NAME)
-	@echo ">>> $(NAME) project has been successfuly built!"
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-# Compile .c to .o (ensure obj directory exists)
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+bonus: $(BONUS_NAME)
 
-# Remove object files
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS_NAME)
+
 clean:
-	$(RM) $(OBJ_DIR)
-	@echo ">>> Object files removed."
+	rm -f $(OBJS) $(BONUS_OBJS)
 
-# Remove object files and the library
 fclean: clean
-	$(RM) $(NAME)
-	@echo ">>> Removed $(NAME)."
+	rm -f $(NAME) $(BONUS_NAME)
 
-# Rebuild everything from scratch
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
 
 # End of Makefile
