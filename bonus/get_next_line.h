@@ -14,18 +14,18 @@
 # define GET_NEXT_LINE_H
 
 # define YES 1
-# define NO  0
+# define NO 0
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 555
 # endif /* ifndef BUFFER_SIZE */
 
-#if BUFFER_SIZE <= 0
+# if BUFFER_SIZE <= 0
 #  error "BUFFER_SIZE must be positive"
-#endif
+# endif
 
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 char	*get_next_line(int fd);
 int		gnl_strlen(const char *s);
